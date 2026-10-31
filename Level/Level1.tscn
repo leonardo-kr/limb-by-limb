@@ -26,7 +26,7 @@
 [ext_resource type="Script" uid="uid://yotohtykwd6g" path="res://pillar.gd" id="pillar_script"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qu0m"]
-size = Vector2(30, 24)
+size = Vector2(10, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2merx"]
 size = Vector2(316, 5)
@@ -43,8 +43,8 @@ size = Vector2(20, 205)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iuwwb"]
 size = Vector2(53, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qh2r"]
-size = Vector2(14, 35)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oby7d"]
+size = Vector2(24, 35.5)
 
 [node name="Level1" type="Node2D" unique_id=833380249]
 
@@ -126,14 +126,14 @@ tile_map_data = PackedByteArray("AAD3/wIAAAAKAAAAAAD3/wMAAAAGAAMAAAD4/wMAAAAIAAM
 
 [node name="ButtonInteract" type="Area2D" parent="World" unique_id=1777694888 node_paths=PackedStringArray("column")]
 script = ExtResource("11_iuwwb")
-column = NodePath("../Ground/Art/Bridge2")
+column = NodePath("../Ground/Wall")
 
 [node name="Button" type="Sprite2D" parent="World/ButtonInteract" unique_id=879774401]
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_4ig53")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/ButtonInteract" unique_id=793872273]
-position = Vector2(-157, 61)
+position = Vector2(-158, 65.5)
 shape = SubResource("RectangleShape2D_6qu0m")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="World" unique_id=1794998400]
@@ -151,12 +151,8 @@ scale = Vector2(0.3, 0.3)
 [node name="Bridge" type="Sprite2D" parent="World/Ground/Art" unique_id=1266297380]
 texture = ExtResource("4_6qh2r")
 
-[node name="Bridge2" type="Sprite2D" parent="World/Ground/Art" unique_id=1718891653 node_paths=PackedStringArray("tile_map")]
-texture = ExtResource("14_2hk6s")
-script = ExtResource("pillar_script")
-tile_map = NodePath("../../../TileMapLayer")
-
-[node name="House0" type="Sprite2D" parent="World/Ground/Art" unique_id=1838740647]
+[node name="House0" type="Sprite2D" parent="World/Ground" unique_id=1838740647]
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("10_mljhq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Ground" unique_id=1246570351]
@@ -179,9 +175,16 @@ shape = SubResource("RectangleShape2D_fgyt8")
 position = Vector2(-135.5, 51)
 shape = SubResource("RectangleShape2D_iuwwb")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="World/Ground" unique_id=715387587]
-position = Vector2(220, 54.5)
-shape = SubResource("RectangleShape2D_6qh2r")
+[node name="Wall" type="StaticBody2D" parent="World/Ground" unique_id=1521993995]
+script = ExtResource("pillar_script")
+
+[node name="Bridge2" type="Sprite2D" parent="World/Ground/Wall" unique_id=1718891653]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_2hk6s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Ground/Wall" unique_id=1072268783]
+position = Vector2(220, 54.25)
+shape = SubResource("RectangleShape2D_oby7d")
 
 [node name="Player" parent="World" unique_id=1110022530 groups=["player"] instance=ExtResource("1_1rv4e")]
 position = Vector2(-340, 21.000015)

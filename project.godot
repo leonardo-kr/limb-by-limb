@@ -91,6 +91,7 @@ locale/translations=PackedStringArray("res://Localization/translations.de.transl
 [physics]
 
 3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
 
 [rendering]
 

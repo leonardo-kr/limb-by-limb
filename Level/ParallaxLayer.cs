@@ -4,7 +4,7 @@ using Godot;
 // Factor 1 = moves with the world, 0 = stays fixed on screen, >1 = moves faster (foreground).
 public partial class ParallaxLayer : Node2D
 {
-	[Export] public Vector2 Factor = new(0.5f, 0.5f);
+	[Export] public Vector2 Factor = new(0.5f, 0f);
 
 	// World position of the camera at which the layer sits exactly as the artist composed it
 	[Export] public Vector2 AlignAt = Vector2.Zero;
@@ -27,6 +27,6 @@ public partial class ParallaxLayer : Node2D
 		}
 
 		var cameraOffset = camera.GetScreenCenterPosition() - AlignAt;
-		Position = _origin + cameraOffset * (Vector2.One - Factor);
+		Position = _origin + cameraOffset * Factor;
 	}
 }

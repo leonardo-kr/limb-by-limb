@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://xq3kk8hwdu5m"]
+[gd_scene format=4 uid="uid://xq3kk8hwdu5m"]
 
 [ext_resource type="PackedScene" uid="uid://bsvatwdtmec3g" path="res://Player/HeadPlayer.tscn" id="1_1rv4e"]
 [ext_resource type="Script" uid="uid://c8kmslxoh5ajd" path="res://Level/ParallaxLayer.cs" id="1_iuwwb"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://c7oimupb42y61" path="res://Level/Design/Button.png" id="5_4ig53"]
 [ext_resource type="Texture2D" uid="uid://bcdums5wctgn2" path="res://Level/Design/Fog.png" id="6_4kmxf"]
 [ext_resource type="Texture2D" uid="uid://dn45eraq5ram4" path="res://Level/Design/Front_Tree_1.png" id="7_h7s2f"]
-[ext_resource type="Texture2D" uid="uid://43qd2vx114jg" path="res://Level/Design/Front_Tree_2.png" id="8_2tr6t"]
 [ext_resource type="Texture2D" uid="uid://1ster12rbh3p" path="res://Level/Design/House_2.png" id="9_baopv"]
 [ext_resource type="Texture2D" uid="uid://0slxp4lkq512" path="res://Level/Design/House_0.png" id="10_mljhq"]
 [ext_resource type="Script" uid="uid://c0qopbevakh35" path="res://button_interact.gd" id="11_iuwwb"]
@@ -58,12 +57,14 @@ Factor = Vector2(0, 0)
 AlignAt = Vector2(-326, 10)
 
 [node name="Background" type="Sprite2D" parent="Background/Sky" unique_id=1523717956]
+position = Vector2(-195.33337, 0)
+scale = Vector2(1.1379472, 1)
 texture = ExtResource("1_txdu4")
 
 [node name="Moon" type="Node2D" parent="Background" unique_id=1089757260]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_iuwwb")
-Factor = Vector2(0.05, 0.05)
+Factor = Vector2(0.4, 0)
 AlignAt = Vector2(-326, 10)
 
 [node name="MoonShine" type="Sprite2D" parent="Background/Moon" unique_id=197468213]
@@ -73,9 +74,10 @@ texture = ExtResource("13_devxu")
 texture = ExtResource("12_jn7w3")
 
 [node name="FarHouses" type="Node2D" parent="Background" unique_id=1360757968]
+position = Vector2(-24, 0)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_iuwwb")
-Factor = Vector2(0.3, 0.3)
+Factor = Vector2(0.3, 0)
 AlignAt = Vector2(-326, 10)
 
 [node name="House2" type="Sprite2D" parent="Background/FarHouses" unique_id=1233537887]
@@ -90,15 +92,17 @@ texture = ExtResource("3_iuwwb")
 [node name="Fog" type="Node2D" parent="Background" unique_id=502381900]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_iuwwb")
+Factor = Vector2(0.1, 0)
 AlignAt = Vector2(-326, 10)
 
 [node name="Fog2" type="Sprite2D" parent="Background/Fog" unique_id=907256698]
+position = Vector2(-459.99997, -26.666656)
 texture = ExtResource("6_4kmxf")
 
 [node name="NearHouses" type="Node2D" parent="Background" unique_id=1829174264]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_iuwwb")
-Factor = Vector2(0.7, 0.7)
+Factor = Vector2(0.1, 0)
 AlignAt = Vector2(-326, 10)
 
 [node name="Tree2" type="Sprite2D" parent="Background/NearHouses" unique_id=1238616308]
@@ -118,7 +122,7 @@ AlignAt = Vector2(-326, 10)
 [node name="TileMapLayer" parent="World" unique_id=1697916272 instance=ExtResource("3_ai77n")]
 top_level = true
 scale = Vector2(0.07, 0.07)
-tile_map_data = PackedByteArray()
+tile_map_data = PackedByteArray("AAD3/wIAAAAKAAAAAAD3/wMAAAAGAAMAAAD4/wMAAAAIAAMAAAD4/wQAAAAGAAMAAAD5/wQAAAAIAAMAAAD6/wQAAAAKAAAAAAD7/wQAAAAKAAAAAAD8/wQAAAAKAAAAAAD9/wQAAAAKAAAAAAD+/wQAAAAKAAAAAAD//wQAAAAKAAAAAAAAAAQAAAAKAAAAAAABAAQAAAAKAAAAAAAEAAQAAAAKAAAAAAAEAAUAAAAKAAIAAAADAAUAAAAKAAIAAAACAAUAAAAKAAIAAAACAAQAAAAKAAAAAAAIAAQAAAAKAAAAAAAJAAQAAAAKAAAAAAAKAAQAAAAKAAAAAAALAAQAAAAKAAAAAAAMAAQAAAALAAAAAAAMAAUAAAALAAIAAAALAAUAAAAKAAIAAAAKAAUAAAAKAAIAAAAJAAUAAAAKAAIAAAAIAAUAAAAKAAIAAAAHAAUAAAAKAAIAAAAGAAUAAAAKAAIAAAAFAAUAAAAKAAIAAAABAAUAAAAKAAIAAAAAAAUAAAAKAAIAAAD//wUAAAAKAAIAAAD+/wUAAAAKAAIAAAD9/wUAAAAKAAIAAAD8/wUAAAAKAAIAAAD7/wUAAAAKAAIAAAD6/wUAAAAKAAIAAAD5/wUAAAAKAAIAAAD4/wUAAAAKAAIAAAD3/wUAAAAKAAIAAAD3/wQAAAAKAAEAAAADAAQAAAAKAAAAAAAFAAQAAAAKAAAAAAAGAAQAAAAKAAAAAAAHAAQAAAAKAAAAAAD2/wUAAAAKAAIAAAD1/wQAAAAGAAMAAAD0/wQAAAAKAAEAAAD0/wUAAAAKAAIAAAD1/wUAAAAKAAIAAAD2/wQAAAAGAAMAAAD0/wMAAAAGAAMAAAD1/wMAAAAKAAEAAAD2/wMAAAAGAAMAAAD5/wMAAAALAAAAAAD2/wIAAAAKAAAAAAD1/wIAAAAKAAAAAAD0/wIAAAAIAAMAAAD4/wIAAAALAAAAAADz/wMAAAAGAAMAAADz/wIAAAAKAAEAAADz/wEAAAAGAAMAAADz/wAAAAAKAAEAAADz////AAAIAAMAAADy/wMAAAAJAAEAAADy/wIAAAAJAAEAAADy/wEAAAAJAAEAAADy/wAAAAAJAAEAAADy////AAAJAAEAAADz/wUAAAAKAAIAAADz/wQAAAAKAAEAAADy/wUAAAAJAAIAAADy/wQAAAAJAAEAAAD0/wAAAAALAAEAAAD0/wEAAAALAAEAAADz//7/AAALAAEAAADz//3/AAALAAEAAADz//z/AAALAAEAAADz//v/AAALAAAAAADy//7/AAAJAAEAAADy//3/AAAJAAEAAADy//z/AAAJAAEAAADy//v/AAAJAAAAAAD0////AAALAAAAAAA=")
 
 [node name="ButtonInteract" type="Area2D" parent="World" unique_id=1777694888 node_paths=PackedStringArray("column")]
 script = ExtResource("11_iuwwb")
@@ -168,7 +172,7 @@ position = Vector2(-172.5, 62)
 shape = SubResource("RectangleShape2D_drs3v")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="World/Ground" unique_id=339290204]
-position = Vector2(-435, -59.5)
+position = Vector2(-412, -70)
 shape = SubResource("RectangleShape2D_fgyt8")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="World/Ground" unique_id=2079157884]
@@ -185,25 +189,32 @@ position = Vector2(-340, 21.000015)
 [node name="Foreground" type="Node2D" parent="." unique_id=1766124595]
 
 [node name="FrontProps" type="Node2D" parent="Foreground" unique_id=1149880904]
+z_index = 100
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_iuwwb")
-Factor = Vector2(1.2, 0.5)
+Factor = Vector2(0, 0)
 AlignAt = Vector2(-326, 10)
 
 [node name="Stone2" type="Sprite2D" parent="Foreground/FrontProps" unique_id=810874915]
+position = Vector2(73.33333, -40)
 texture = ExtResource("16_swnsj")
 
 [node name="Stone0" type="Sprite2D" parent="Foreground/FrontProps" unique_id=975757081]
+position = Vector2(163.33333, -30)
 texture = ExtResource("14_dfyb3")
 
 [node name="Stone1" type="Sprite2D" parent="Foreground/FrontProps" unique_id=683247136]
+position = Vector2(40, -36.666668)
 texture = ExtResource("15_6mgq4")
 
 [node name="Stone4" type="Sprite2D" parent="Foreground/FrontProps" unique_id=1701583890]
+position = Vector2(-50, -33.333332)
 texture = ExtResource("17_5ecgi")
 
 [node name="FrontTree1" type="Sprite2D" parent="Foreground/FrontProps" unique_id=1606231820]
+position = Vector2(519.99994, -46.666668)
 texture = ExtResource("7_h7s2f")
 
-[node name="FrontTree2" type="Sprite2D" parent="Foreground/FrontProps" unique_id=2033827187]
-texture = ExtResource("8_2tr6t")
+[node name="Stone3" type="Sprite2D" parent="Foreground/FrontProps" unique_id=1374743798]
+position = Vector2(-1766.6666, -276.66666)
+texture = ExtResource("15_6mgq4")

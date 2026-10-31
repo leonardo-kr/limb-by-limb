@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dgtitqda6nxd"]
 
 [ext_resource type="Script" uid="uid://bexqssh7b1fx2" path="res://Menu/MainMenu.cs" id="1_e1xpn"]
+[ext_resource type="Texture2D" uid="uid://bapntalklh47p" path="res://Menu/menu_background.png" id="2_swd6r"]
 
 [node name="MainMenu" type="Control" unique_id=1777709857]
 layout_mode = 3
@@ -10,6 +11,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e1xpn")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1579195107]
+modulate = Color(0.4, 0.4, 0.4, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_swd6r")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=358197054]
 layout_mode = 1

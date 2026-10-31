@@ -57,11 +57,11 @@ texture = ExtResource("6_4kmxf")
 [node name="NearHouses" type="Parallax2D" parent="Background" unique_id=1304467846]
 scroll_scale = Vector2(0.7, 0.7)
 
-[node name="House1" type="Sprite2D" parent="Background/NearHouses" unique_id=108793793]
-texture = ExtResource("11_sw7xv")
-
 [node name="Tree2" type="Sprite2D" parent="Background/NearHouses" unique_id=1238616308]
 texture = ExtResource("18_k8w68")
+
+[node name="House1" type="Sprite2D" parent="Background/NearHouses" unique_id=108793793]
+texture = ExtResource("11_sw7xv")
 
 [node name="BackTrees" type="Parallax2D" parent="Background" unique_id=1798710465]
 scroll_scale = Vector2(0.9, 0.9)

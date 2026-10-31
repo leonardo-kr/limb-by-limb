@@ -19,4 +19,3 @@ func remove() -> void:
 			tile_map.set_cell(cell, 0, ground_atlas_coords)
 		tile_map.update_internals()
 	queue_free()
-	print("Pillar removed")

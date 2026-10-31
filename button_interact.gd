@@ -12,7 +12,6 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("player"):
 		return
-	print("Player touched the button, it moves %d pixels to the left" % push_distance)
 	if pressed:
 		return
 	pressed = true

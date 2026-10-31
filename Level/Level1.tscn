@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://xq3kk8hwdu5m"]
 
 [ext_resource type="PackedScene" uid="uid://bsvatwdtmec3g" path="res://Player/HeadPlayer.tscn" id="1_1rv4e"]
+[ext_resource type="Script" uid="uid://c8kmslxoh5ajd" path="res://Level/ParallaxLayer.cs" id="1_iuwwb"]
 [ext_resource type="Texture2D" uid="uid://ccdennpcar3fs" path="res://Level/Design/Background_0.png" id="1_txdu4"]
 [ext_resource type="Texture2D" uid="uid://dkkd7c0d77es0" path="res://Level/Design/Back_Tree_2.png" id="2_2hk6s"]
 [ext_resource type="PackedScene" uid="uid://ce56xdwd2qa2y" path="res://Level/tile_map_layer.tscn" id="3_ai77n"]
@@ -40,16 +41,21 @@ size = Vector2(53, 17)
 [node name="Level1" type="Node2D" unique_id=833380249]
 
 [node name="Background" type="Node2D" parent="." unique_id=972401161]
-scale = Vector2(0.3, 0.3)
 
-[node name="Sky" type="Parallax2D" parent="Background" unique_id=1227119087]
-scroll_scale = Vector2(0, 0)
+[node name="Sky" type="Node2D" parent="Background" unique_id=590226856]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_iuwwb")
+Factor = Vector2(0, 0)
+AlignAt = Vector2(-326, 10)
 
 [node name="Background" type="Sprite2D" parent="Background/Sky" unique_id=1523717956]
 texture = ExtResource("1_txdu4")
 
-[node name="Moon" type="Parallax2D" parent="Background" unique_id=629885236]
-scroll_scale = Vector2(0.05, 0.05)
+[node name="Moon" type="Node2D" parent="Background" unique_id=1089757260]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_iuwwb")
+Factor = Vector2(0.05, 0.05)
+AlignAt = Vector2(-326, 10)
 
 [node name="MoonShine" type="Sprite2D" parent="Background/Moon" unique_id=197468213]
 texture = ExtResource("13_devxu")
@@ -57,20 +63,34 @@ texture = ExtResource("13_devxu")
 [node name="Moon" type="Sprite2D" parent="Background/Moon" unique_id=1466911053]
 texture = ExtResource("12_jn7w3")
 
-[node name="FarHouses" type="Parallax2D" parent="Background" unique_id=764483022]
-scroll_scale = Vector2(0.3, 0.3)
+[node name="FarHouses" type="Node2D" parent="Background" unique_id=1360757968]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_iuwwb")
+Factor = Vector2(0.3, 0.3)
+AlignAt = Vector2(-326, 10)
 
 [node name="House2" type="Sprite2D" parent="Background/FarHouses" unique_id=1233537887]
 texture = ExtResource("9_baopv")
 
-[node name="Fog" type="Parallax2D" parent="Background" unique_id=333787010]
-scroll_scale = Vector2(0.5, 0.5)
+[node name="BackTree2" type="Sprite2D" parent="Background/FarHouses" unique_id=81271073]
+texture = ExtResource("2_2hk6s")
+
+[node name="BackTree3" type="Sprite2D" parent="Background/FarHouses" unique_id=1743102131]
+texture = ExtResource("3_iuwwb")
+
+[node name="Fog" type="Node2D" parent="Background" unique_id=502381900]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_iuwwb")
+AlignAt = Vector2(-326, 10)
 
 [node name="Fog2" type="Sprite2D" parent="Background/Fog" unique_id=907256698]
 texture = ExtResource("6_4kmxf")
 
-[node name="NearHouses" type="Parallax2D" parent="Background" unique_id=1304467846]
-scroll_scale = Vector2(0.7, 0.7)
+[node name="NearHouses" type="Node2D" parent="Background" unique_id=1829174264]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_iuwwb")
+Factor = Vector2(0.7, 0.7)
+AlignAt = Vector2(-326, 10)
 
 [node name="Tree2" type="Sprite2D" parent="Background/NearHouses" unique_id=1238616308]
 texture = ExtResource("18_k8w68")
@@ -78,14 +98,11 @@ texture = ExtResource("18_k8w68")
 [node name="House1" type="Sprite2D" parent="Background/NearHouses" unique_id=108793793]
 texture = ExtResource("11_sw7xv")
 
-[node name="BackTrees" type="Parallax2D" parent="Background" unique_id=1798710465]
-scroll_scale = Vector2(0.9, 0.9)
-
-[node name="BackTree2" type="Sprite2D" parent="Background/BackTrees" unique_id=81271073]
-texture = ExtResource("2_2hk6s")
-
-[node name="BackTree3" type="Sprite2D" parent="Background/BackTrees" unique_id=1743102131]
-texture = ExtResource("3_iuwwb")
+[node name="BackTrees" type="Node2D" parent="Background" unique_id=2053914027]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_iuwwb")
+Factor = Vector2(0.9, 0.9)
+AlignAt = Vector2(-326, 10)
 
 [node name="World" type="Node2D" parent="." unique_id=1269453728]
 
@@ -100,16 +117,16 @@ texture = ExtResource("5_4ig53")
 
 [node name="Ground" type="StaticBody2D" parent="World" unique_id=1596884247]
 
-[node name="Bridge" type="Sprite2D" parent="World/Ground" unique_id=1266297380]
+[node name="Art" type="Node2D" parent="World/Ground" unique_id=1281511869]
 scale = Vector2(0.3, 0.3)
+
+[node name="Bridge" type="Sprite2D" parent="World/Ground/Art" unique_id=1266297380]
 texture = ExtResource("4_6qh2r")
 
-[node name="Bridge2" type="Sprite2D" parent="World/Ground" unique_id=1718891653]
-scale = Vector2(0.3, 0.3)
+[node name="Bridge2" type="Sprite2D" parent="World/Ground/Art" unique_id=1718891653]
 texture = ExtResource("14_2hk6s")
 
-[node name="House0" type="Sprite2D" parent="World/Ground" unique_id=1838740647]
-scale = Vector2(0.3, 0.3)
+[node name="House0" type="Sprite2D" parent="World/Ground/Art" unique_id=1838740647]
 texture = ExtResource("10_mljhq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Ground" unique_id=1246570351]
@@ -136,10 +153,12 @@ shape = SubResource("RectangleShape2D_iuwwb")
 position = Vector2(-326, 10.000001)
 
 [node name="Foreground" type="Node2D" parent="." unique_id=1766124595]
-scale = Vector2(0.3, 0.3)
 
-[node name="FrontProps" type="Parallax2D" parent="Foreground" unique_id=1245677031]
-scroll_scale = Vector2(1.2, 1.2)
+[node name="FrontProps" type="Node2D" parent="Foreground" unique_id=1149880904]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_iuwwb")
+Factor = Vector2(1.2, 0.5)
+AlignAt = Vector2(-326, 10)
 
 [node name="Stone2" type="Sprite2D" parent="Foreground/FrontProps" unique_id=810874915]
 texture = ExtResource("16_swnsj")

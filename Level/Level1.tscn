@@ -151,6 +151,10 @@ shape = SubResource("RectangleShape2D_iuwwb")
 
 [node name="Player" parent="World" unique_id=1110022530 instance=ExtResource("1_1rv4e")]
 position = Vector2(-326, 10.000001)
+Speed = 150.0
+GravityScale = 1.0
+FallGravityScale = 1.0
+MaxFallSpeed = 300.0
 
 [node name="Foreground" type="Node2D" parent="." unique_id=1766124595]
 

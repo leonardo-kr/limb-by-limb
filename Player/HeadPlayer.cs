@@ -6,11 +6,15 @@ public partial class HeadPlayer : BasePlayer
 {
 	private HeadState _headState = HeadState.NORMAL;
 	private float _baseScale = 0.1f;
+	private RayCast2D _ceilingDetectionLeft;
+	private RayCast2D _ceilingDetectionRight;
 	
 	public override void _Ready()
 	{
 		Sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		Collision = GetNode<CollisionShape2D>("CollisionShape2D");
+		_ceilingDetectionLeft = GetNode<RayCast2D>("CeilingDetectionLeft");
+		_ceilingDetectionRight = GetNode<RayCast2D>("CeilingDetectionRight");
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -96,14 +100,18 @@ public partial class HeadPlayer : BasePlayer
 
 	private void HandleInput()
 	{
-		if (Input.IsActionPressed("look_up"))
-		{
-			Stretch();
-			// Stretch
-		} else if (Input.IsActionPressed("look_down"))
+		if (_headState == HeadState.SQUISHED && isUnderCeiling())
 		{
 			Squish();
+		}
+		else if (Input.IsActionPressed("look_up"))
+		{
+			// Stretch
+			Stretch();
+		} else if (Input.IsActionPressed("look_down"))
+		{
 			// Squish
+			Squish();
 		}
 		else
 		{
@@ -116,7 +124,6 @@ public partial class HeadPlayer : BasePlayer
 	{
 		Scale = new Vector2(_baseScale * 1.5f, _baseScale / 2.0f);
 		_headState = HeadState.SQUISHED;
-		// load other character model
 	}
 
 	private void Stretch()
@@ -125,6 +132,11 @@ public partial class HeadPlayer : BasePlayer
 		_headState = HeadState.STRETCHED;
 		Sprite.Play("idle");
 		Velocity = Vector2.Zero;
+	}
+
+	bool isUnderCeiling()
+	{
+		return _ceilingDetectionLeft.IsColliding() || _ceilingDetectionRight.IsColliding();
 	}
 }
 

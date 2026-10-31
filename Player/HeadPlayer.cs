@@ -5,7 +5,7 @@ using YourFirstGame.Player;
 public partial class HeadPlayer : BasePlayer
 {
 	private HeadState _headState = HeadState.NORMAL;
-	private float _baseScale = 0.03f;
+	private float _baseScale = 0.1f;
 	
 	public override void _Ready()
 	{

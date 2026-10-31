@@ -34,6 +34,9 @@ size = Vector2(21, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgyt8"]
 size = Vector2(20, 205)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuwwb"]
+size = Vector2(53, 17)
+
 [node name="Level1" type="Node2D" unique_id=833380249]
 
 [node name="Background" type="Node2D" parent="." unique_id=972401161]
@@ -124,6 +127,10 @@ shape = SubResource("RectangleShape2D_drs3v")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="World/Ground" unique_id=339290204]
 position = Vector2(-435, -59.5)
 shape = SubResource("RectangleShape2D_fgyt8")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="World/Ground" unique_id=2079157884]
+position = Vector2(-135.5, 50.5)
+shape = SubResource("RectangleShape2D_iuwwb")
 
 [node name="Player" parent="World" unique_id=1110022530 instance=ExtResource("1_1rv4e")]
 position = Vector2(-326, 10.000001)

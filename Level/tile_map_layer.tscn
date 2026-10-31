@@ -4,6 +4,7 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7lyb7"]
 texture = ExtResource("1_3ia7n")
+texture_region_size = Vector2i(512, 512)
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -421,6 +422,7 @@ texture = ExtResource("1_3ia7n")
 11:3/0/terrains_peering_bit/top_right_corner = 0
 
 [sub_resource type="TileSet" id="TileSet_6qu0m"]
+tile_size = Vector2i(512, 512)
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"

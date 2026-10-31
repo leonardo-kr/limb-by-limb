@@ -51,7 +51,7 @@ animations = [{
 }]
 
 [node name="Player2" type="CharacterBody2D" unique_id=1110022530]
-scale = Vector2(0.03, 0.03)
+scale = Vector2(0.1, 0.1)
 script = ExtResource("1_q3lat")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1245905168]
@@ -60,7 +60,7 @@ scale = Vector2(1.8290159, 1.8529676)
 shape = SubResource("RectangleShape2D_ai77n")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1834054364]
-zoom = Vector2(7, 7)
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=407991481]

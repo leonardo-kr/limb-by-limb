@@ -61,6 +61,13 @@ shader_parameter/left_end = 0.0
 shader_parameter/right_start = 0.9
 shader_parameter/right_end = 1.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rhbku"]
+shader = ExtResource("1_yrf7i")
+shader_parameter/left_start = 0.0
+shader_parameter/left_end = 0.0
+shader_parameter/right_start = 0.95
+shader_parameter/right_end = 1.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d5g4t"]
 shader = ExtResource("1_yrf7i")
 shader_parameter/left_start = 0.0
@@ -112,6 +119,7 @@ follow_viewport_enabled = true
 
 [node name="Background3" type="Sprite2D" parent="Background/Sky/CanvasLayer" unique_id=2134305328]
 z_index = -25
+material = SubResource("ShaderMaterial_rhbku")
 position = Vector2(1193.5001, -29.49998)
 scale = Vector2(0.37252825, 0.6342592)
 texture = ExtResource("1_txdu4")

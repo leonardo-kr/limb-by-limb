@@ -27,8 +27,8 @@ public partial class FullPlayer : BasePlayer
         Init();
 		Sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		Collision = GetNode<CollisionShape2D>("CollisionShape2D");
-		_pushingHitbox = GetNode<Area2D>("PushingHitbox");
-		_pushingHitboxCollision = _pushingHitbox.GetNode<CollisionShape2D>("CollisionShape2D");
+		_pushingHitbox = GetNode<Area2D>("EnvArea");
+		_pushingHitboxCollision = _pushingHitbox.GetNode<CollisionShape2D>("EnvCollision");
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -38,6 +38,10 @@ public partial class FullPlayer : BasePlayer
 		HandleJump();
 		HandleMovement(delta);
 		HandlePush();
+		if (Input.IsActionPressed("die"))
+		{
+			Die();
+		}
 
 		MoveAndSlide();
 	}

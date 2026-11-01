@@ -22,10 +22,16 @@ public partial class LegsPlayer : BasePlayer
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
+		Init();
 		UpdateTimers(delta);
 		ApplyGravity(delta);
 		HandleJump();
 		HandleMovement(delta);
+
+		if (Input.IsActionPressed("die"))
+		{
+			Die();
+		}
 
 		MoveAndSlide();
 	}

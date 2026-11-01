@@ -42,4 +42,14 @@ public abstract partial class BasePlayer : CharacterBody2D
             RespawnLocation = body.GlobalPosition;
         }
     }
+
+    public async void Die()
+    {
+	    Sprite.Hide();
+	    DeathTimer = DeathTime;
+	    await ToSignal(GetTree().CreateTimer(1.0f), SceneTreeTimer.SignalName.Timeout);
+	    Position = RespawnLocation;
+	    IsDead = false;
+	    Sprite.Show();
+    }
 }

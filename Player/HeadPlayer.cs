@@ -13,6 +13,7 @@ public partial class HeadPlayer : BasePlayer
 	
 	public override void _Ready()
 	{
+		Init();
 		Sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		Collision = GetNode<CollisionShape2D>("CollisionShape2D");
 		_ceilingDetectionLeft = GetNode<RayCast2D>("CeilingDetectionLeft");
@@ -22,10 +23,6 @@ public partial class HeadPlayer : BasePlayer
 	
 	public override void _PhysicsProcess(double delta)
 	{
-        if (IsDead)
-        {
-            return;
-        }
 		ApplyGravity(delta);
 		HandleMovement(delta);
 		HandleInput();
@@ -36,11 +33,6 @@ public partial class HeadPlayer : BasePlayer
 
 	private void UpdateTimers(double delta)
 	{
-        // _deathTimer.Process(delta);
-        if (IsDead)
-        {
-            DeathTimer = Mathf.Max(DeathTimer - (float) delta, 0.0f);
-        }
 		InvincibilityTimer = Mathf.Max(InvincibilityTimer - (float) delta, 0.0f);
 	}
 	
@@ -161,17 +153,6 @@ public partial class HeadPlayer : BasePlayer
                 Die();
             }
         }
-    }
-
-    private async void Die()
-    {
-        Sprite.Hide();
-        DeathTimer = DeathTime;
-        await ToSignal(GetTree().CreateTimer(1.0f), SceneTreeTimer.SignalName.Timeout);
-        Position = RespawnLocation;
-        IsDead = false;
-        Sprite.Show();
-        // GetNode<SceneTransition>("/root/SceneTransition").ChangeScene("res://Menu/MainMenu.tscn");
     }
 
 	bool isUnderCeiling()

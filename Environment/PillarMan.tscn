@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://24x75lmplati"]
+
+[ext_resource type="Script" uid="uid://bd8xs65eccfc6" path="res://Environment/PillarMan.cs" id="1_rjk34"]
+[ext_resource type="PackedScene" uid="uid://ce56xdwd2qa2y" path="res://Level/tile_map_layer.tscn" id="1_y4t3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4t3o"]
+size = Vector2(26, 114)
+
+[node name="PillarMan" type="CharacterBody2D" unique_id=1901240605]
+collision_mask = 4
+script = ExtResource("1_rjk34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1450836407]
+shape = SubResource("RectangleShape2D_y4t3o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=931180666]
+
+[node name="TileMapLayer" parent="." unique_id=1697916272 instance=ExtResource("1_y4t3o")]
+position = Vector2(22, 22)
+scale = Vector2(0.085, 0.085)
+tile_map_data = PackedByteArray(0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 1, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0)

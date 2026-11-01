@@ -9,7 +9,7 @@ public partial class HeadPlayer : BasePlayer
 	private float _baseScale = 0.1f;
 	private RayCast2D _ceilingDetectionLeft;
 	private RayCast2D _ceilingDetectionRight;
-    private Vector2 _ceilingDetectionTargetPosition;
+	private Vector2 _ceilingDetectionTargetPosition;
 	
 	public override void _Ready()
 	{
@@ -18,7 +18,7 @@ public partial class HeadPlayer : BasePlayer
 		Collision = GetNode<CollisionShape2D>("CollisionShape2D");
 		_ceilingDetectionLeft = GetNode<RayCast2D>("CeilingDetectionLeft");
 		_ceilingDetectionRight = GetNode<RayCast2D>("CeilingDetectionRight");
-        _ceilingDetectionTargetPosition = _ceilingDetectionLeft.TargetPosition;
+		_ceilingDetectionTargetPosition = _ceilingDetectionLeft.TargetPosition;
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -26,7 +26,7 @@ public partial class HeadPlayer : BasePlayer
 		ApplyGravity(delta);
 		HandleMovement(delta);
 		HandleInput();
-        CheckDeath();
+		CheckDeath();
 
 		MoveAndSlide();
 	}
@@ -120,7 +120,7 @@ public partial class HeadPlayer : BasePlayer
 		{
 			Scale = new Vector2(_baseScale, _baseScale);
 			_headState = HeadState.NORMAL;
-            _ceilingDetectionLeft.TargetPosition = _ceilingDetectionTargetPosition;
+			_ceilingDetectionLeft.TargetPosition = _ceilingDetectionTargetPosition;
 		}
 	}
 
@@ -128,7 +128,7 @@ public partial class HeadPlayer : BasePlayer
 	{
 		Scale = new Vector2(_baseScale * 1.5f, _baseScale / 2.0f);
 		_headState = HeadState.SQUISHED;
-        _ceilingDetectionLeft.TargetPosition = _ceilingDetectionTargetPosition * 2.5f;
+		_ceilingDetectionLeft.TargetPosition = _ceilingDetectionTargetPosition * 2.5f;
 	}
 
 	private void Stretch()
@@ -137,23 +137,23 @@ public partial class HeadPlayer : BasePlayer
 		_headState = HeadState.STRETCHED;
 		Sprite.Play("idle");
 		Velocity = Vector2.Zero;
-        _ceilingDetectionLeft.TargetPosition = _ceilingDetectionTargetPosition * 0.5f;
+		_ceilingDetectionLeft.TargetPosition = _ceilingDetectionTargetPosition * 0.5f;
 	}
 
-    private void CheckDeath()
-    {
-        if (!IsDead && (_ceilingDetectionLeft.IsColliding() || _ceilingDetectionRight.IsColliding()))
-        {
-            PhysicsDirectSpaceState2D state = GetWorld2D().DirectSpaceState;
-            PhysicsRayQueryParameters2D query = PhysicsRayQueryParameters2D.Create(Position, Position + Vector2.Up);
-            Dictionary result = state.IntersectRay(query);
-            if (result.Count > 0)
-            {
-                IsDead = true;
-                Die();
-            }
-        }
-    }
+	private void CheckDeath()
+	{
+		if (!IsDead && (_ceilingDetectionLeft.IsColliding() || _ceilingDetectionRight.IsColliding()))
+		{
+			PhysicsDirectSpaceState2D state = GetWorld2D().DirectSpaceState;
+			PhysicsRayQueryParameters2D query = PhysicsRayQueryParameters2D.Create(Position, Position + Vector2.Up);
+			Dictionary result = state.IntersectRay(query);
+			if (result.Count > 0)
+			{
+				IsDead = true;
+				Die();
+			}
+		}
+	}
 
 	bool isUnderCeiling()
 	{

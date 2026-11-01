@@ -153,9 +153,9 @@ shape = SubResource("RectangleShape2D_6qu0m")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="World" unique_id=1794998400]
 offset_left = -424.0
-offset_top = -162.0
-offset_right = 1220.0
-offset_bottom = 162.0
+offset_top = -252.0
+offset_right = 1676.0
+offset_bottom = 297.0
 script = ExtResource("17_6qh2r")
 
 [node name="Ground" type="StaticBody2D" parent="World" unique_id=1596884247]

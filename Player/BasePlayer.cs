@@ -48,16 +48,16 @@ public abstract partial class BasePlayer : CharacterBody2D
 		}
 
 		if (body.Name.ToString().Contains("LevelUp"))
-        {
+		{
 			if (GetParent() is PlayerManager playerManager)
-            {
-                playerManager.LevelUp();
+			{
+				playerManager.LevelUp();
 				body.QueueFree();
-            } else
-            {
-                GD.PrintErr("No PlayerManager Instance found", GetParent());
-            }
-        }
+			} else
+			{
+				GD.PrintErr("No PlayerManager Instance found", GetParent());
+			}
+		}
 	}
 
 	public async void Die()

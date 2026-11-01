@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://8i4geyfd6jtu" path="res://Level/Design/Spikes.png" id="1_k7spe"]
 [ext_resource type="Script" uid="uid://btx2nn6srhv0s" path="res://Environment/Spikes.cs" id="1_kna57"]
 
-[node name="Area2D" type="Area2D" unique_id=1491084291]
-scale = Vector2(0.2, 0.2)
+[node name="Spikes" type="Area2D" unique_id=1491084291]
+scale = Vector2(0.05, 0.05)
 script = ExtResource("1_kna57")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1912855548]

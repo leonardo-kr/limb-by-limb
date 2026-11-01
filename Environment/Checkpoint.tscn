@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c4qmks5xv1qvy"]
+
+[ext_resource type="Texture2D" uid="uid://8ooottm2myix" path="res://Player/player_head.png" id="1_pl3ab"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eip6h"]
+size = Vector2(20, 58)
+
+[node name="Checkpoint" type="StaticBody2D" unique_id=318321595]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=595048606]
+shape = SubResource("RectangleShape2D_eip6h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2922951]
+scale = Vector2(0.028125, 0.0875)
+texture = ExtResource("1_pl3ab")

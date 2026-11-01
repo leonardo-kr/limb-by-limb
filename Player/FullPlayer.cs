@@ -23,7 +23,8 @@ public partial class FullPlayer : BasePlayer
 	private CollisionShape2D _pushingHitboxCollision;
 
 	public override void _Ready()
-	{
+    {
+        Init();
 		Sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		Collision = GetNode<CollisionShape2D>("CollisionShape2D");
 		_pushingHitbox = GetNode<Area2D>("PushingHitbox");
@@ -94,7 +95,6 @@ public partial class FullPlayer : BasePlayer
 
 		// only needed for controller, but doesnt impact keyboard
 		// always move at the same speed, by setting the movement director to 1f 
-		GD.Print(_pushingHitboxCollision.Scale);
 		if (movementDirection > 0)
 		{
 			Sprite.Play("Walk");

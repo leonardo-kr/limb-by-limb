@@ -50,8 +50,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijcx3"]
+size = Vector2(179.99998, 179.99998)
+
 [node name="Player2" type="CharacterBody2D" unique_id=1110022530]
 scale = Vector2(0.1, 0.1)
+collision_layer = 2
 script = ExtResource("1_q3lat")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1245905168]
@@ -76,3 +80,13 @@ target_position = Vector2(0, -149.99998)
 position = Vector2(81.94437, 0)
 scale = Vector2(0.99999994, 0.99999994)
 target_position = Vector2(0, -150.00002)
+
+[node name="EnvArea" type="Area2D" parent="." unique_id=182735751]
+collision_layer = 2
+collision_mask = 4
+
+[node name="EnvCollision" type="CollisionShape2D" parent="EnvArea" unique_id=962294711]
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_ijcx3")
+
+[connection signal="body_entered" from="EnvArea" to="." method="OnEnvBodyEntered"]

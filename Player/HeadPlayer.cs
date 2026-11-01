@@ -10,7 +10,6 @@ public partial class HeadPlayer : BasePlayer
 	private RayCast2D _ceilingDetectionLeft;
 	private RayCast2D _ceilingDetectionRight;
     private Vector2 _ceilingDetectionTargetPosition;
-    private bool _isDead = false;
 	
 	public override void _Ready()
 	{
@@ -23,7 +22,7 @@ public partial class HeadPlayer : BasePlayer
 	
 	public override void _PhysicsProcess(double delta)
 	{
-        if (_isDead)
+        if (IsDead)
         {
             return;
         }
@@ -37,6 +36,11 @@ public partial class HeadPlayer : BasePlayer
 
 	private void UpdateTimers(double delta)
 	{
+        // _deathTimer.Process(delta);
+        if (IsDead)
+        {
+            DeathTimer = Mathf.Max(DeathTimer - (float) delta, 0.0f);
+        }
 		InvincibilityTimer = Mathf.Max(InvincibilityTimer - (float) delta, 0.0f);
 	}
 	
@@ -146,17 +150,28 @@ public partial class HeadPlayer : BasePlayer
 
     private void CheckDeath()
     {
-        if (_ceilingDetectionLeft.IsColliding() || _ceilingDetectionRight.IsColliding())
+        if (!IsDead && (_ceilingDetectionLeft.IsColliding() || _ceilingDetectionRight.IsColliding()))
         {
             PhysicsDirectSpaceState2D state = GetWorld2D().DirectSpaceState;
             PhysicsRayQueryParameters2D query = PhysicsRayQueryParameters2D.Create(Position, Position + Vector2.Up);
             Dictionary result = state.IntersectRay(query);
             if (result.Count > 0)
             {
-                _isDead = true;
-                Sprite.Hide();
+                IsDead = true;
+                Die();
             }
         }
+    }
+
+    private async void Die()
+    {
+        Sprite.Hide();
+        DeathTimer = DeathTime;
+        await ToSignal(GetTree().CreateTimer(1.0f), SceneTreeTimer.SignalName.Timeout);
+        Position = RespawnLocation;
+        IsDead = false;
+        Sprite.Show();
+        // GetNode<SceneTransition>("/root/SceneTransition").ChangeScene("res://Menu/MainMenu.tscn");
     }
 
 	bool isUnderCeiling()

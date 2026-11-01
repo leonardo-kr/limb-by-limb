@@ -14,7 +14,7 @@
 size = Vector2(49, 112)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ijcx3"]
-size = Vector2(82, 20)
+size = Vector2(82, 110)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2merx"]
 animations = [{
@@ -65,12 +65,13 @@ shape = SubResource("RectangleShape2D_eip6h")
 zoom = Vector2(4.5, 4.5)
 position_smoothing_enabled = true
 
-[node name="PushingHitbox" type="Area2D" parent="." unique_id=1889996928]
+[node name="EnvArea" type="Area2D" parent="." unique_id=1889996928]
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PushingHitbox" unique_id=582672420]
-position = Vector2(31, 0)
+[node name="EnvCollision" type="CollisionShape2D" parent="EnvArea" unique_id=582672420]
+position = Vector2(30.99999, -4.9999933)
+scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_ijcx3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1794375624]
@@ -79,5 +80,6 @@ sprite_frames = SubResource("SpriteFrames_2merx")
 animation = &"Walk"
 autoplay = "Idle"
 
-[connection signal="area_entered" from="PushingHitbox" to="." method="OnPushingHitboxAreaEntered"]
-[connection signal="area_exited" from="PushingHitbox" to="." method="OnPushingHitboxAreaExited"]
+[connection signal="area_entered" from="EnvArea" to="." method="OnPushingHitboxAreaEntered"]
+[connection signal="area_exited" from="EnvArea" to="." method="OnPushingHitboxAreaExited"]
+[connection signal="body_entered" from="EnvArea" to="." method="OnEnvBodyEntered"]

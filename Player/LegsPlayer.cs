@@ -25,6 +25,11 @@ public partial class LegsPlayer : BasePlayer
 		Init();
 		UpdateTimers(delta);
 		ApplyGravity(delta);
+
+		if (Sprite.Animation == "Death") {
+			return;
+		}
+
 		HandleJump();
 		HandleMovement(delta);
 

@@ -23,10 +23,22 @@ public partial class HeadPlayer : BasePlayer
 	
 	public override void _PhysicsProcess(double delta)
 	{
+
 		ApplyGravity(delta);
+
+		if (Sprite.Animation == "Death") {
+			return;
+		}
+
 		HandleMovement(delta);
 		HandleInput();
 		CheckDeath();
+
+		if (Input.IsActionPressed("die"))
+		{
+			Die();
+			return;
+		}
 
 		MoveAndSlide();
 	}
@@ -90,7 +102,7 @@ public partial class HeadPlayer : BasePlayer
 		} else
 		{
 			movementDirection = 0f;
-			Sprite.Play("idle");
+			Sprite.Play("Idle");
 		}
 		
 		if (KnockBackTimer > 0f)
@@ -135,7 +147,7 @@ public partial class HeadPlayer : BasePlayer
 	{
 		Scale = new Vector2(_baseScale / 2.0f, _baseScale * 1.5f);
 		_headState = HeadState.STRETCHED;
-		Sprite.Play("idle");
+		Sprite.Play("Idle");
 		Velocity = Vector2.Zero;
 		_ceilingDetectionLeft.TargetPosition = _ceilingDetectionTargetPosition * 0.5f;
 	}

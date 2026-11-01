@@ -23,8 +23,8 @@ public partial class FullPlayer : BasePlayer
 	private CollisionShape2D _pushingHitboxCollision;
 
 	public override void _Ready()
-    {
-        Init();
+	{
+		Init();
 		Sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		Collision = GetNode<CollisionShape2D>("CollisionShape2D");
 		_pushingHitbox = GetNode<Area2D>("EnvArea");
@@ -35,6 +35,11 @@ public partial class FullPlayer : BasePlayer
 	{
 		UpdateTimers(delta);
 		ApplyGravity(delta);
+
+		if (Sprite.Animation == "Death") {
+			return;
+		}
+
 		HandleJump();
 		HandleMovement(delta);
 		HandlePush();

@@ -386,7 +386,14 @@ texture_region_size = Vector2i(512, 512)
 11:3/0/terrains_peering_bit/top_side = 0
 11:3/0/terrains_peering_bit/top_right_corner = 0
 10:0/0 = 0
+10:0/0/terrain_set = 0
+10:0/0/terrain = 0
 10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -160, 256, -160, 256, 256, -256, 256)
+10:0/0/terrains_peering_bit/right_side = 0
+10:0/0/terrains_peering_bit/bottom_right_corner = 0
+10:0/0/terrains_peering_bit/bottom_side = 0
+10:0/0/terrains_peering_bit/bottom_left_corner = 0
+10:0/0/terrains_peering_bit/left_side = 0
 
 [sub_resource type="TileSet" id="TileSet_6qu0m"]
 tile_size = Vector2i(512, 512)

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Godot.Collections;
 using YourFirstGame.Player;
 
 public partial class HeadPlayer : BasePlayer
@@ -8,6 +9,8 @@ public partial class HeadPlayer : BasePlayer
 	private float _baseScale = 0.1f;
 	private RayCast2D _ceilingDetectionLeft;
 	private RayCast2D _ceilingDetectionRight;
+    private Vector2 _ceilingDetectionTargetPosition;
+    private bool _isDead = false;
 	
 	public override void _Ready()
 	{
@@ -15,13 +18,19 @@ public partial class HeadPlayer : BasePlayer
 		Collision = GetNode<CollisionShape2D>("CollisionShape2D");
 		_ceilingDetectionLeft = GetNode<RayCast2D>("CeilingDetectionLeft");
 		_ceilingDetectionRight = GetNode<RayCast2D>("CeilingDetectionRight");
+        _ceilingDetectionTargetPosition = _ceilingDetectionLeft.TargetPosition;
 	}
 	
 	public override void _PhysicsProcess(double delta)
 	{
+        if (_isDead)
+        {
+            return;
+        }
 		ApplyGravity(delta);
 		HandleMovement(delta);
 		HandleInput();
+        CheckDeath();
 
 		MoveAndSlide();
 	}
@@ -100,23 +109,22 @@ public partial class HeadPlayer : BasePlayer
 
 	private void HandleInput()
 	{
-		if (_headState == HeadState.SQUISHED && isUnderCeiling())
+		if (isUnderCeiling())
 		{
 			Squish();
 		}
 		else if (Input.IsActionPressed("look_up"))
 		{
-			// Stretch
 			Stretch();
 		} else if (Input.IsActionPressed("look_down"))
 		{
-			// Squish
 			Squish();
 		}
 		else
 		{
 			Scale = new Vector2(_baseScale, _baseScale);
 			_headState = HeadState.NORMAL;
+            _ceilingDetectionLeft.TargetPosition = _ceilingDetectionTargetPosition;
 		}
 	}
 
@@ -124,6 +132,7 @@ public partial class HeadPlayer : BasePlayer
 	{
 		Scale = new Vector2(_baseScale * 1.5f, _baseScale / 2.0f);
 		_headState = HeadState.SQUISHED;
+        _ceilingDetectionLeft.TargetPosition = _ceilingDetectionTargetPosition * 2.5f;
 	}
 
 	private void Stretch()
@@ -132,7 +141,24 @@ public partial class HeadPlayer : BasePlayer
 		_headState = HeadState.STRETCHED;
 		Sprite.Play("idle");
 		Velocity = Vector2.Zero;
+        _ceilingDetectionLeft.TargetPosition = _ceilingDetectionTargetPosition * 0.5f;
 	}
+
+    private void CheckDeath()
+    {
+        if (_ceilingDetectionLeft.IsColliding() || _ceilingDetectionRight.IsColliding())
+        {
+            PhysicsDirectSpaceState2D state = GetWorld2D().DirectSpaceState;
+            PhysicsRayQueryParameters2D query = PhysicsRayQueryParameters2D.Create(Position, Position + Vector2.Up);
+            Dictionary result = state.IntersectRay(query);
+            GD.Print(result);
+            if (result.Count > 0)
+            {
+                _isDead = true;
+                Sprite.Hide();
+            }
+        }
+    }
 
 	bool isUnderCeiling()
 	{

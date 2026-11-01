@@ -70,9 +70,9 @@ autoplay = "idle"
 
 [node name="CeilingDetectionLeft" type="RayCast2D" parent="." unique_id=1462550051]
 position = Vector2(-69.99999, 0)
-target_position = Vector2(0, -179.99998)
+target_position = Vector2(0, -149.99998)
 
 [node name="CeilingDetectionRight" type="RayCast2D" parent="." unique_id=1652925428]
-position = Vector2(90, 0)
+position = Vector2(81.94437, 0)
 scale = Vector2(0.99999994, 0.99999994)
-target_position = Vector2(0, -179.99998)
+target_position = Vector2(0, -150.00002)

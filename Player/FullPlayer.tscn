@@ -86,7 +86,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=1110022530]
+[node name="Player" type="CharacterBody2D" unique_id=1110022530 groups=["player"]]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_cu2fw")
 

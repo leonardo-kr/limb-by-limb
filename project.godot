@@ -30,6 +30,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Your First Game"
 
+[global_group]
+
+player=""
+
 [gui]
 
 theme/custom="uid://bwbvgnqw52hs6"

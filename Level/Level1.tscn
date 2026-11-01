@@ -46,7 +46,7 @@
 [ext_resource type="Script" uid="uid://yotohtykwd6g" path="res://pillar.gd" id="pillar_script"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qu0m"]
-size = Vector2(10, 13)
+size = Vector2(9, 12.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2merx"]
 size = Vector2(316, 5)
@@ -186,13 +186,13 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_4ig53")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/ButtonInteract" unique_id=793872273]
-position = Vector2(-153, 80)
+position = Vector2(-158.5, 65.75)
 shape = SubResource("RectangleShape2D_6qu0m")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="World" unique_id=1794998400]
-offset_left = -424.0
+offset_left = -425.0
 offset_top = -249.0
-offset_right = 1676.0
+offset_right = 1675.0
 offset_bottom = 278.0
 script = ExtResource("17_6qh2r")
 
@@ -243,7 +243,6 @@ texture = ExtResource("14_2hk6s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Ground/Wall" unique_id=1072268783]
 position = Vector2(220, 54.25)
 shape = SubResource("RectangleShape2D_oby7d")
-disabled = true
 
 [node name="Spikes" parent="World/Ground" unique_id=669314271 instance=ExtResource("19_oa7dg")]
 position = Vector2(665.00006, 207)

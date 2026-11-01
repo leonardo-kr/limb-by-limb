@@ -148,7 +148,7 @@ public partial class HeadPlayer : BasePlayer
 		Scale = new Vector2(_baseScale / 2.0f, _baseScale * 1.5f);
 		_headState = HeadState.STRETCHED;
 		Sprite.Play("Idle");
-		Velocity = Vector2.Zero;
+		Velocity = new Vector2(0f, Velocity.Y);
 		_ceilingDetectionLeft.TargetPosition = _ceilingDetectionTargetPosition * 0.5f;
 	}
 

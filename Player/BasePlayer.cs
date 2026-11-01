@@ -4,6 +4,10 @@ namespace YourFirstGame.Player;
 
 public abstract partial class BasePlayer : CharacterBody2D
 {
+
+	[Export] public float JumpVelocity = -250.0f;
+	[Export] public float JumpCutMultiplier = 0.4f;
+
 	[Export] public int Health = 10;
 	[Export] public float Speed = 150.0f;
 	[Export] public Vector2 RespawnLocation = new Vector2(-377, 19);
@@ -46,7 +50,7 @@ public abstract partial class BasePlayer : CharacterBody2D
     public async void Die()
     {
 		Sprite.Play("Death");
-		await ToSignal(GetTree().CreateTimer(1.5f), SceneTreeTimer.SignalName.Timeout);
+		await ToSignal(GetTree().CreateTimer(1.3f), SceneTreeTimer.SignalName.Timeout);
 	
 	    Sprite.Hide();
 	    DeathTimer = DeathTime;

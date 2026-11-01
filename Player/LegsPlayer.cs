@@ -4,8 +4,6 @@ using YourFirstGame.Player;
 
 public partial class LegsPlayer : BasePlayer
 {
-	[Export] public float JumpVelocity = -800.0f;
-	[Export] public float JumpCutMultiplier = 0.4f;
 	[Export] public float CoyoteTime = 0.1f;
 	[Export] public float JumpBufferTime = 0.1f;
 
@@ -95,16 +93,19 @@ public partial class LegsPlayer : BasePlayer
 		// always move at the same speed, by setting the movement director to 1f
 		if (movementDirection > 0)
 		{
+			Sprite.Play("Walk");
 			Sprite.FlipH = false;
 			movementDirection = 1f;
 		}
 		else if (movementDirection < 0)
 		{
+			Sprite.Play("Walk");
 			Sprite.FlipH = true;
 			movementDirection = -1f;
 		}
 		else
 		{
+			Sprite.Play("Idle");
 			movementDirection = 0f;
 		}
 

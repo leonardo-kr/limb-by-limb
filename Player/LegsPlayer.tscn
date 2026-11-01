@@ -1,7 +1,21 @@
 [gd_scene format=3 uid="uid://q280oefwc0fu"]
 
 [ext_resource type="Script" uid="uid://bvxqpj12rjnec" path="res://Player/LegsPlayer.cs" id="1_8rv72"]
-[ext_resource type="Texture2D" uid="uid://dky15j7kd6arf" path="res://Player/player_legs.png" id="2_8rv72"]
+[ext_resource type="Texture2D" uid="uid://dgl3lb8yhjdmf" path="res://Player/Sprites/DeathHalf/DeathHalf-1.png" id="2_l464a"]
+[ext_resource type="Texture2D" uid="uid://cmm62ta4ax27b" path="res://Player/Sprites/DeathHalf/DeathHalf-2.png" id="3_41g4g"]
+[ext_resource type="Texture2D" uid="uid://cvfm0h4wpu8rs" path="res://Player/Sprites/DeathHalf/DeathHalf-3.png" id="4_8n4vo"]
+[ext_resource type="Texture2D" uid="uid://dbfks2d30ju0d" path="res://Player/Sprites/DeathHalf/DeathHalf-4.png" id="5_7wdrr"]
+[ext_resource type="Texture2D" uid="uid://ctgue2w02kiq2" path="res://Player/Sprites/DeathHalf/DeathHalf-5.png" id="6_ubsfu"]
+[ext_resource type="Texture2D" uid="uid://4trmomsu4tgo" path="res://Player/Sprites/DeathHalf/DeathHalf-6.png" id="7_ts4ye"]
+[ext_resource type="Texture2D" uid="uid://c036523hkl83o" path="res://Player/Sprites/DeathHalf/DeathHalf-7.png" id="8_ntg76"]
+[ext_resource type="Texture2D" uid="uid://nuj3e608on6k" path="res://Player/Sprites/IdleHalf/IdleHalf-1.png" id="9_8n4vo"]
+[ext_resource type="Texture2D" uid="uid://c31pntd7vi3wv" path="res://Player/Sprites/IdleHalf/IdleHalf-2.png" id="10_7wdrr"]
+[ext_resource type="Texture2D" uid="uid://b1otf8toa7eh1" path="res://Player/Sprites/WalkHalf/Half_Walking-1.png" id="10_rxchs"]
+[ext_resource type="Texture2D" uid="uid://d08jl6ednuv6y" path="res://Player/Sprites/WalkHalf/Half_Walking-2.png" id="11_1ipx8"]
+[ext_resource type="Texture2D" uid="uid://cx0ipr24utsyn" path="res://Player/Sprites/IdleHalf/IdleHalf-3.png" id="11_ubsfu"]
+[ext_resource type="Texture2D" uid="uid://c03wa3rjh27lk" path="res://Player/Sprites/WalkHalf/Half_Walking-3.png" id="12_oc6w5"]
+[ext_resource type="Texture2D" uid="uid://udn05npqln04" path="res://Player/Sprites/WalkHalf/Half_Walking-4.png" id="13_38rsg"]
+[ext_resource type="Texture2D" uid="uid://dm0yd3u18my4m" path="res://Player/Sprites/WalkHalf/Half_Walking-5.png" id="14_vqpq3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eip6h"]
 size = Vector2(62, 98)
@@ -10,10 +24,62 @@ size = Vector2(62, 98)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_8rv72")
+"texture": ExtResource("2_l464a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_41g4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8n4vo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7wdrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ubsfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ts4ye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ntg76")
+}],
+"loop": 1,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_8n4vo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7wdrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ubsfu")
 }],
 "loop": 1,
 "name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_rxchs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1ipx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_oc6w5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_38rsg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_vqpq3")
+}],
+"loop": 1,
+"name": &"Walk",
 "speed": 5.0
 }]
 
@@ -21,6 +87,7 @@ animations = [{
 size = Vector2(179.99998, 179.99998)
 
 [node name="Player3" type="CharacterBody2D" unique_id=1110022530]
+scale = Vector2(0.2, 0.2)
 script = ExtResource("1_8rv72")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1245905168]
@@ -28,13 +95,13 @@ position = Vector2(-3, 4)
 shape = SubResource("RectangleShape2D_eip6h")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1834054364]
+zoom = Vector2(4.5, 4.5)
 position_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1430012214]
-position = Vector2(8, 4)
-scale = Vector2(0.035, 0.035)
+scale = Vector2(0.127, 0.127)
 sprite_frames = SubResource("SpriteFrames_2merx")
-animation = &"Idle"
+animation = &"Death"
 autoplay = "Idle"
 
 [node name="EnvArea" type="Area2D" parent="." unique_id=1696046842]

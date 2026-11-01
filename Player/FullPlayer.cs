@@ -5,9 +5,6 @@ namespace YourFirstGame.Player;
 
 public partial class FullPlayer : BasePlayer
 {
-
-	[Export] public float JumpVelocity = -800.0f;
-	[Export] public float JumpCutMultiplier = 0.4f;
 	[Export] public float CoyoteTime = 0.1f;
 	[Export] public float JumpBufferTime = 0.1f;
 	[Export] public float PushForce = 800.0f;

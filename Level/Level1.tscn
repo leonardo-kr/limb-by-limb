@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://xq3kk8hwdu5m"]
 
-[ext_resource type="PackedScene" uid="uid://bsvatwdtmec3g" path="res://Player/HeadPlayer.tscn" id="1_1rv4e"]
 [ext_resource type="Script" uid="uid://c8kmslxoh5ajd" path="res://Level/ParallaxLayer.cs" id="1_iuwwb"]
 [ext_resource type="Texture2D" uid="uid://ccdennpcar3fs" path="res://Level/Design/Background_0.png" id="1_txdu4"]
 [ext_resource type="Texture2D" uid="uid://dkkd7c0d77es0" path="res://Level/Design/Back_Tree_2.png" id="2_2hk6s"]
@@ -26,9 +25,19 @@
 [ext_resource type="PackedScene" uid="uid://24x75lmplati" path="res://Environment/PillarMan.tscn" id="20_4kmxf"]
 [ext_resource type="PackedScene" uid="uid://c4qmks5xv1qvy" path="res://Environment/Checkpoint.tscn" id="21_h7s2f"]
 [ext_resource type="Texture2D" uid="uid://bkykyyjb0sysq" path="res://Level/Design/Bounce_Plant_1.png" id="27_mljhq"]
+[ext_resource type="Texture2D" uid="uid://2wlccd1aowa4" path="res://Level/Design/Plant_1.png" id="27_uuobp"]
+[ext_resource type="Texture2D" uid="uid://t4adq0ykr6ca" path="res://Level/Design/Plant_3.png" id="28_oa7dg"]
 [ext_resource type="Texture2D" uid="uid://bctkqrxacw0i8" path="res://Level/Design/Bounce_Plant_2.png" id="28_sw7xv"]
+[ext_resource type="Texture2D" uid="uid://cm7tjw5cjrpea" path="res://Level/Design/Plant_4.png" id="29_egjdj"]
 [ext_resource type="Texture2D" uid="uid://bonbbbkkr1nxv" path="res://Level/Design/Bounce_Plant_3.png" id="29_jn7w3"]
+[ext_resource type="PackedScene" uid="uid://q280oefwc0fu" path="res://Player/LegsPlayer.tscn" id="30_jn7w3"]
 [ext_resource type="PackedScene" uid="uid://b8fto0ke0yhj6" path="res://Environment/TrampolineFlower.tscn" id="30_sw7xv"]
+[ext_resource type="Texture2D" uid="uid://hnce5rj837o1" path="res://Level/Design/Plant_5.png" id="30_v54j0"]
+[ext_resource type="Texture2D" uid="uid://cow0exvllxqjr" path="res://Level/Design/Plant_6.png" id="35_32ljf"]
+[ext_resource type="Texture2D" uid="uid://d2avq200tvrjb" path="res://Level/Design/Plant_7.png" id="36_y26i4"]
+[ext_resource type="Texture2D" uid="uid://b3l8ehp8k6dqa" path="res://Level/Design/Plant_8.png" id="37_yrf7i"]
+[ext_resource type="Texture2D" uid="uid://dpv7ba72345hb" path="res://Level/Design/Plant_9.png" id="38_2en7k"]
+[ext_resource type="Texture2D" uid="uid://be6vtsjix62jl" path="res://Level/Design/Plant_11.png" id="39_l0xmc"]
 [ext_resource type="Script" uid="uid://yotohtykwd6g" path="res://pillar.gd" id="pillar_script"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qu0m"]
@@ -151,17 +160,10 @@ AlignAt = Vector2(-326, 10)
 
 [node name="World" type="Node2D" parent="." unique_id=1269453728]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="World" unique_id=1454901283]
-layer = -1
-follow_viewport_enabled = true
-
-[node name="TileMapLayer2" parent="World/CanvasLayer" unique_id=1697916272 instance=ExtResource("3_ai77n")]
+[node name="TileMapLayer2" parent="World" unique_id=1697916272 instance=ExtResource("3_ai77n")]
 top_level = true
 scale = Vector2(0.07, 0.07)
 tile_map_data = PackedByteArray("AAAZAAYAAAAKAAAAAAAaAAYAAAAKAAAAAAAbAAYAAAAKAAAAAAAcAAUAAAAJAAAAAAAcAAYAAAAJAAMAAAAdAAYAAAAKAAEAAAAdAAUAAAAKAAAAAAAeAAYAAAALAAEAAAAeAAUAAAALAAAAAAAeAAcAAAAIAAMAAAAeAAgAAAAKAAIAAAAfAAgAAAAKAAIAAAAgAAgAAAAKAAIAAAAhAAgAAAAKAAIAAAAhAAcAAAAJAAMAAAAiAAUAAAAGAAMAAAAiAAYAAAAKAAEAAAAiAAcAAAAKAAEAAAAgAAcAAAAKAAAAAAAfAAcAAAAKAAAAAAAjAAUAAAAGAAMAAAAkAAQAAAAKAAEAAAAkAAUAAAAGAAMAAAAlAAUAAAALAAEAAAAlAAQAAAALAAEAAAAjAAYAAAAGAAMAAAAkAAYAAAAKAAEAAAAlAAYAAAALAAEAAAAhAAQAAAAJAAAAAAAiAAQAAAAKAAAAAAAjAAQAAAAJAAMAAAAkAAMAAAAKAAAAAAAlAAMAAAALAAAAAAAjAAcAAAAKAAEAAAAkAAcAAAAGAAMAAAAlAAcAAAAIAAMAAAAdAAcAAAAKAAEAAAAcAAcAAAAGAAMAAAAbAAcAAAAKAAEAAAAaAAcAAAAKAAEAAAAZAAcAAAAKAAEAAAAZAAgAAAAKAAIAAAAaAAgAAAAKAAIAAAAbAAgAAAAKAAIAAAAcAAgAAAAKAAIAAAAdAAgAAAAKAAIAAAAiAAgAAAAKAAIAAAAjAAgAAAAKAAIAAAAkAAgAAAAKAAIAAAAlAAgAAAAKAAIAAAAmAAgAAAAKAAIAAAAnAAgAAAAKAAIAAAAoAAgAAAAKAAIAAAApAAgAAAAKAAIAAAAmAAcAAAAKAAAAAAAnAAcAAAAKAAAAAAAoAAcAAAAJAAMAAAApAAcAAAAKAAEAAAAoAAYAAAAJAAEAAAAoAAUAAAAJAAEAAAAoAAQAAAAJAAEAAAAoAAMAAAAJAAEAAAAoAAIAAAAJAAEAAAAoAAEAAAAJAAEAAAAoAAAAAAAJAAEAAAAoAP//AAAJAAEAAAAoAP7/AAAJAAEAAAApAP7/AAAGAAMAAAApAP//AAAGAAMAAAApAAAAAAAGAAMAAAApAAEAAAAGAAMAAAApAAIAAAAGAAMAAAApAAMAAAAGAAMAAAApAAQAAAAGAAMAAAApAAUAAAAKAAEA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")
-
-[node name="CanvasModulate" type="CanvasModulate" parent="World/CanvasLayer" unique_id=46028215]
-color = Color(1.3701545, 2.9906976, 1.5666798, 1)
 
 [node name="TileMapLayer" parent="World" unique_id=436527524 instance=ExtResource("3_ai77n")]
 top_level = true
@@ -185,7 +187,7 @@ shape = SubResource("RectangleShape2D_6qu0m")
 offset_left = -424.0
 offset_top = -262.0
 offset_right = 1676.0
-offset_bottom = 297.0
+offset_bottom = 265.0
 script = ExtResource("17_6qh2r")
 
 [node name="Ground" type="StaticBody2D" parent="World" unique_id=1596884247]
@@ -235,9 +237,6 @@ texture = ExtResource("14_2hk6s")
 position = Vector2(220, 54.25)
 shape = SubResource("RectangleShape2D_oby7d")
 
-[node name="Player" parent="World" unique_id=1110022530 groups=["player"] instance=ExtResource("1_1rv4e")]
-position = Vector2(-487, 9)
-
 [node name="PillarMan" parent="World" unique_id=1901240605 instance=ExtResource("20_4kmxf")]
 position = Vector2(748, 164)
 MovementSpeed = 50.0
@@ -275,6 +274,48 @@ position = Vector2(1123, 37)
 scale = Vector2(0.3027343, 0.3027343)
 texture = ExtResource("29_jn7w3")
 
+[node name="Stone2" type="Sprite2D" parent="World" unique_id=1146844967]
+position = Vector2(1111, -123)
+scale = Vector2(0.17592591, 0.17592593)
+texture = ExtResource("16_swnsj")
+
+[node name="Stone4" type="Sprite2D" parent="World" unique_id=1159237648]
+position = Vector2(1120, 126)
+scale = Vector2(0.08616508, 0.2445023)
+texture = ExtResource("17_5ecgi")
+
+[node name="Stone0" type="Sprite2D" parent="World" unique_id=1769674067]
+position = Vector2(1369, -2)
+scale = Vector2(0.029749319, 0.016435187)
+texture = ExtResource("14_dfyb3")
+
+[node name="Plant1" type="Sprite2D" parent="World" unique_id=1306093132]
+z_index = -7
+position = Vector2(1070, 204)
+scale = Vector2(0.35791016, 0.36291978)
+texture = ExtResource("27_uuobp")
+
+[node name="Plant3" type="Sprite2D" parent="World" unique_id=1963406180]
+z_index = 17
+position = Vector2(1607, 231)
+scale = Vector2(0.53515625, 0.6191406)
+texture = ExtResource("28_oa7dg")
+
+[node name="Plant4" type="Sprite2D" parent="World" unique_id=1317645261]
+position = Vector2(1118, 177)
+scale = Vector2(0.2529297, 0.2529297)
+texture = ExtResource("28_oa7dg")
+
+[node name="Plant5" type="Sprite2D" parent="World" unique_id=1946570197]
+position = Vector2(1292, 33)
+scale = Vector2(0.19506827, 0.19506827)
+texture = ExtResource("29_egjdj")
+
+[node name="Plant6" type="Sprite2D" parent="World" unique_id=862342793]
+position = Vector2(1245, -88)
+scale = Vector2(0.546875, 0.546875)
+texture = ExtResource("30_v54j0")
+
 [node name="Foreground" type="Node2D" parent="." unique_id=1766124595]
 
 [node name="FrontProps" type="Node2D" parent="Foreground" unique_id=1149880904]
@@ -290,6 +331,10 @@ texture = ExtResource("16_swnsj")
 
 [node name="Stone0" type="Sprite2D" parent="Foreground/FrontProps" unique_id=975757081]
 position = Vector2(163.33333, -30)
+texture = ExtResource("14_dfyb3")
+
+[node name="Stone6" type="Sprite2D" parent="Foreground/FrontProps" unique_id=376626850]
+position = Vector2(3836.6665, 496.66663)
 texture = ExtResource("14_dfyb3")
 
 [node name="Stone1" type="Sprite2D" parent="Foreground/FrontProps" unique_id=683247136]
@@ -308,6 +353,21 @@ texture = ExtResource("7_h7s2f")
 position = Vector2(-1766.6666, -276.66666)
 texture = ExtResource("15_6mgq4")
 
+[node name="Stone5" type="Sprite2D" parent="Foreground/FrontProps" unique_id=1420258030]
+position = Vector2(4883.333, 763.33325)
+scale = Vector2(0.29470074, 0.18287037)
+texture = ExtResource("14_dfyb3")
+
+[node name="Stone7" type="Sprite2D" parent="Foreground/FrontProps" unique_id=98119991]
+position = Vector2(4190, 510)
+scale = Vector2(0.8227401, 0.65123457)
+texture = ExtResource("15_6mgq4")
+
+[node name="Stone8" type="Sprite2D" parent="Foreground/FrontProps" unique_id=971119607]
+position = Vector2(3893.334, -86.666626)
+scale = Vector2(0.35251895, 0.20833334)
+texture = ExtResource("15_6mgq4")
+
 [node name="PillarMan" parent="." unique_id=228892606 instance=ExtResource("20_4kmxf")]
 position = Vector2(535, 128)
 MovementSpeed = 50.0
@@ -315,11 +375,41 @@ MovementSpeed = 50.0
 [node name="TrampolineFlower" parent="." unique_id=263623384 instance=ExtResource("30_sw7xv")]
 position = Vector2(1147, 201)
 scale = Vector2(0.68, 0.68420655)
+BounceForce = -400.0
 
 [node name="TrampolineFlower2" parent="." unique_id=622339532 instance=ExtResource("30_sw7xv")]
 position = Vector2(1398, 159.00002)
 scale = Vector2(0.68, 0.68420655)
+BounceForce = -600.0
 
 [node name="TrampolineFlower3" parent="." unique_id=372753504 instance=ExtResource("30_sw7xv")]
 position = Vector2(1041, 1)
 scale = Vector2(0.64, 0.68420655)
+BounceForce = -550.0
+
+[node name="Player3" parent="." unique_id=1110022530 instance=ExtResource("30_jn7w3")]
+position = Vector2(948, 151)
+JumpVelocity = -275.0
+
+[node name="Plant6" type="Sprite2D" parent="." unique_id=1653435297]
+position = Vector2(789, -167)
+texture = ExtResource("35_32ljf")
+
+[node name="Plant7" type="Sprite2D" parent="." unique_id=1220052790]
+position = Vector2(1211, -119.99994)
+scale = Vector2(0.23632813, 0.23632813)
+texture = ExtResource("36_y26i4")
+
+[node name="Plant8" type="Sprite2D" parent="." unique_id=1193518493]
+position = Vector2(725.00006, 211)
+scale = Vector2(1.144043, 0.9824219)
+texture = ExtResource("37_yrf7i")
+
+[node name="Plant9" type="Sprite2D" parent="." unique_id=904103944]
+position = Vector2(1549.5, -56.50004)
+scale = Vector2(0.23535149, 0.23535149)
+texture = ExtResource("38_2en7k")
+
+[node name="Plant11" type="Sprite2D" parent="." unique_id=693650117]
+position = Vector2(1142, -1)
+texture = ExtResource("39_l0xmc")

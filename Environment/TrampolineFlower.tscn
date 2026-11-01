@@ -15,8 +15,6 @@ script = ExtResource("1_xrqd8")
 shape = SubResource("RectangleShape2D_xrqd8")
 
 [node name="PlayerChecker" type="Area2D" parent="." unique_id=1058801289]
-collision_layer = 4
-collision_mask = 2
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="PlayerChecker" unique_id=1228699071]
 position = Vector2(0, -6)

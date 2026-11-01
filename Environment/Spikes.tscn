@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ce7geujwx8r6b"]
+
+[ext_resource type="Texture2D" uid="uid://8i4geyfd6jtu" path="res://Level/Design/Spikes.png" id="1_k7spe"]
+[ext_resource type="Script" uid="uid://btx2nn6srhv0s" path="res://Environment/Spikes.cs" id="1_kna57"]
+
+[node name="Area2D" type="Area2D" unique_id=1491084291]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_kna57")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1912855548]
+texture = ExtResource("1_k7spe")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1709503708]
+polygon = PackedVector2Array(-298, -264, -418, -212, -443, 232, 313, 267, 391, -173, 288, -136, 150, -176, 144, -264, 27, -193, -164, -208, -261, -193)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

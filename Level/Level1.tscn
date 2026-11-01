@@ -24,14 +24,18 @@
 [ext_resource type="Script" uid="uid://bcoorr6cxvr3l" path="res://Level/CameraBounds.cs" id="17_6qh2r"]
 [ext_resource type="Texture2D" uid="uid://dg7k1y7mj1y2n" path="res://Level/Design/Tree_2.png" id="18_k8w68"]
 [ext_resource type="PackedScene" uid="uid://ce7geujwx8r6b" path="res://Environment/Spikes.tscn" id="19_oa7dg"]
+[ext_resource type="PackedScene" uid="uid://c0pse4k0ypeac" path="res://Player/level_up.tscn" id="20_2tr6t"]
 [ext_resource type="PackedScene" uid="uid://24x75lmplati" path="res://Environment/PillarMan.tscn" id="20_4kmxf"]
+[ext_resource type="PackedScene" uid="uid://do04s8pe7lfu1" path="res://Player/FullPlayer.tscn" id="20_h7s2f"]
 [ext_resource type="PackedScene" uid="uid://c4qmks5xv1qvy" path="res://Environment/Checkpoint.tscn" id="21_h7s2f"]
+[ext_resource type="Texture2D" uid="uid://bctkqrxacw0i8" path="res://Level/Design/Bounce_Plant_2.png" id="23_y26i4"]
 [ext_resource type="Texture2D" uid="uid://bkykyyjb0sysq" path="res://Level/Design/Bounce_Plant_1.png" id="27_mljhq"]
 [ext_resource type="Texture2D" uid="uid://2wlccd1aowa4" path="res://Level/Design/Plant_1.png" id="27_uuobp"]
 [ext_resource type="Texture2D" uid="uid://t4adq0ykr6ca" path="res://Level/Design/Plant_3.png" id="28_oa7dg"]
-[ext_resource type="Texture2D" uid="uid://bctkqrxacw0i8" path="res://Level/Design/Bounce_Plant_2.png" id="28_sw7xv"]
+[ext_resource type="PackedScene" uid="uid://dp6wwsk20sc7t" path="res://Player/player_manager.tscn" id="28_sw7xv"]
 [ext_resource type="Texture2D" uid="uid://cm7tjw5cjrpea" path="res://Level/Design/Plant_4.png" id="29_egjdj"]
 [ext_resource type="Texture2D" uid="uid://bonbbbkkr1nxv" path="res://Level/Design/Bounce_Plant_3.png" id="29_jn7w3"]
+[ext_resource type="PackedScene" uid="uid://q280oefwc0fu" path="res://Player/LegsPlayer.tscn" id="30_jn7w3"]
 [ext_resource type="PackedScene" uid="uid://b8fto0ke0yhj6" path="res://Environment/TrampolineFlower.tscn" id="30_sw7xv"]
 [ext_resource type="Texture2D" uid="uid://hnce5rj837o1" path="res://Level/Design/Plant_5.png" id="30_v54j0"]
 [ext_resource type="Texture2D" uid="uid://cow0exvllxqjr" path="res://Level/Design/Plant_6.png" id="35_32ljf"]
@@ -182,7 +186,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_4ig53")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/ButtonInteract" unique_id=793872273]
-position = Vector2(-158, 65.5)
+position = Vector2(-153, 80)
 shape = SubResource("RectangleShape2D_6qu0m")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="World" unique_id=1794998400]
@@ -274,7 +278,7 @@ texture = ExtResource("27_mljhq")
 [node name="BouncePlant2" type="Sprite2D" parent="World" unique_id=1735136054]
 position = Vector2(1072, 140)
 scale = Vector2(0.30737308, 0.30737308)
-texture = ExtResource("28_sw7xv")
+texture = ExtResource("23_y26i4")
 
 [node name="BouncePlant3" type="Sprite2D" parent="World" unique_id=67281861]
 z_as_relative = false
@@ -323,6 +327,14 @@ texture = ExtResource("29_egjdj")
 position = Vector2(1190, -71)
 scale = Vector2(0.30957022, 0.30957022)
 texture = ExtResource("30_v54j0")
+
+[node name="LevelUp" parent="World" unique_id=1565957067 instance=ExtResource("20_2tr6t")]
+position = Vector2(867, 163)
+scale = Vector2(0.25, 0.25)
+
+[node name="LevelUp2" parent="World" unique_id=1092276534 instance=ExtResource("20_2tr6t")]
+position = Vector2(1607, -124)
+scale = Vector2(0.25, 0.25)
 
 [node name="Foreground" type="Node2D" parent="." unique_id=1766124595]
 
@@ -425,11 +437,7 @@ position = Vector2(1176, 0.9999995)
 scale = Vector2(0.34814447, 0.34814447)
 texture = ExtResource("39_l0xmc")
 
-[node name="Plant5" type="Sprite2D" parent="." unique_id=377231483]
-position = Vector2(1225, 227.99998)
-scale = Vector2(0.21289054, 0.21289054)
-texture = ExtResource("30_v54j0")
-
-[node name="Player" parent="." unique_id=1110022530 instance=ExtResource("1_1rv4e")]
-position = Vector2(-377, 19)
-collision_layer = 3
+[node name="PlayerManager" parent="." unique_id=581066205 instance=ExtResource("28_sw7xv")]
+FullPlayerScene = ExtResource("20_h7s2f")
+LegPlayerScene = ExtResource("30_jn7w3")
+HeadPlayerScene = ExtResource("1_1rv4e")

@@ -96,13 +96,9 @@ position = Vector2(5.9999995, 1.9999999)
 scale = Vector2(1.8290159, 1.8529676)
 shape = SubResource("RectangleShape2D_ai77n")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1834054364]
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=407991481]
 sprite_frames = SubResource("SpriteFrames_2merx")
-animation = &"Idle"
+animation = &"Death"
 autoplay = "Idle"
 
 [node name="CeilingDetectionLeft" type="RayCast2D" parent="." unique_id=1462550051]

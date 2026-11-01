@@ -5,12 +5,13 @@ namespace YourFirstGame.Player;
 public abstract partial class BasePlayer : CharacterBody2D
 {
 
-	[Export] public float JumpVelocity = -250.0f;
+	[Export] public float JumpVelocity = -300.0f;
 	[Export] public float JumpCutMultiplier = 0.4f;
 
 	[Export] public int Health = 10;
 	[Export] public float Speed = 150.0f;
 	[Export] public Vector2 RespawnLocation = new Vector2(-377, 19);
+	[Export] public Vector2 CameraZoomLevel = new Vector2(3.0f, 3.0f);
 	
 	// Gravity stuff
 	[Export] public float GravityScale = 1f;
@@ -21,7 +22,7 @@ public abstract partial class BasePlayer : CharacterBody2D
 	public Vector2 FacingDirection = Vector2.Right;
 	public AnimatedSprite2D Sprite;
 	public Area2D EnvArea;
-	
+
 	public bool IsDead = false;
 	public float DeathTime = 1.0f;
 	public float DeathTimer = 0.0f;
@@ -36,7 +37,7 @@ public abstract partial class BasePlayer : CharacterBody2D
 
 	public void Init()
 	{
-		EnvArea = GetNode<Area2D>("EnvArea");
+		EnvArea = GetNode<Area2D>("EnvArea");	
 	}
 
 	public void OnEnvBodyEntered(Node2D body)
@@ -45,6 +46,18 @@ public abstract partial class BasePlayer : CharacterBody2D
 		{
 			RespawnLocation = body.GlobalPosition;
 		}
+
+		if (body.Name.ToString().Contains("LevelUp"))
+        {
+			if (GetParent() is PlayerManager playerManager)
+            {
+                playerManager.LevelUp();
+				body.QueueFree();
+            } else
+            {
+                GD.PrintErr("No PlayerManager Instance found", GetParent());
+            }
+        }
 	}
 
 	public async void Die()

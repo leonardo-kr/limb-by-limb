@@ -1,7 +1,7 @@
 using Godot;
 using System;
 using YourFirstGame.Player;
-
+ 
 public partial class TrampolineFlower : StaticBody2D
 {
 	[Export] public float BounceForce = -100.0f;
@@ -17,9 +17,8 @@ public partial class TrampolineFlower : StaticBody2D
 	
 	public void OnPlayerCheckerBodyEntered(Node2D body)
 	{
-		if (body.Name.ToString().Contains("Player"))
+		if (body is BasePlayer player)
 		{
-			BasePlayer player = (BasePlayer)body;
 			player.Velocity = new Vector2(player.Velocity.X, BounceForce);
 		}
 	}

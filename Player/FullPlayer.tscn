@@ -87,16 +87,12 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1110022530]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_cu2fw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1245905168]
 position = Vector2(-0.5, -4)
 shape = SubResource("RectangleShape2D_eip6h")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1834054364]
-zoom = Vector2(4.5, 4.5)
-position_smoothing_enabled = true
 
 [node name="EnvArea" type="Area2D" parent="." unique_id=1889996928]
 collision_layer = 0

@@ -9,10 +9,12 @@ public partial class FullPlayer : BasePlayer
 	[Export] public float JumpBufferTime = 0.1f;
 	[Export] public float PushForce = 800.0f;
 	[Export] public float PullForce = -10000.0f;
+	[Export] public new Vector2 CameraZoomLevel = new Vector2(4.5f, 4.5f);
 	
 	private float _coyoteTimer = 0.0f;
 	private float _jumpBufferTimer = 0.0f;
 	private float _movementDirection = 0.0f;
+
 	private bool _isPushing = false;
 	private CharacterBody2D _pushable = null;
 	
@@ -177,22 +179,26 @@ public partial class FullPlayer : BasePlayer
 	
 	public void OnPushingHitboxAreaEntered(Area2D area)
 	{
-		CharacterBody2D pushable = area.GetParent<CharacterBody2D>();
-		if (pushable != null)
-		{
-			// pushable.ApplyCentralImpulse(new Vector2(_movementDirection * Speed, 0));
-			// pushable.ApplyForce(new Vector2(_movementDirection * Speed, 0));
-			_pushable = pushable;
+		if (area.GetParent() is CharacterBody2D pushable)
+		{   
+			if (pushable != null)
+			{
+				// pushable.ApplyCentralImpulse(new Vector2(_movementDirection * Speed, 0));
+				// pushable.ApplyForce(new Vector2(_movementDirection * Speed, 0));
+				_pushable = pushable;
+			}
 		}
 	}
 	
 	public void OnPushingHitboxAreaExited(Area2D area)
 	{
-		CharacterBody2D pushable = area.GetParent<CharacterBody2D>();
-		if (pushable != null)
-		{
-			_pushable.Velocity = Vector2.Zero;
-			_pushable = null;
+		if (area.GetParent() is CharacterBody2D pushable)
+		{   
+			if (pushable != null)
+			{
+				_pushable.Velocity = Vector2.Zero;
+				_pushable = null;
+			}
 		}
 	}
 }

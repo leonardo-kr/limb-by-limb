@@ -7,6 +7,8 @@ public partial class LegsPlayer : BasePlayer
 	[Export] public float CoyoteTime = 0.1f;
 	[Export] public float JumpBufferTime = 0.1f;
 
+	[Export] public new Vector2 CameraZoomLevel = new Vector2(4.5f, 4.5f);
+
 	private float _coyoteTimer = 0.0f;
 	private float _jumpBufferTimer = 0.0f;
 

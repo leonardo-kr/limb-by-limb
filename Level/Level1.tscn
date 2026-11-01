@@ -50,6 +50,7 @@
 [ext_resource type="Texture2D" uid="uid://b3l8ehp8k6dqa" path="res://Level/Design/Plant_8.png" id="37_yrf7i"]
 [ext_resource type="Texture2D" uid="uid://dpv7ba72345hb" path="res://Level/Design/Plant_9.png" id="38_2en7k"]
 [ext_resource type="Texture2D" uid="uid://be6vtsjix62jl" path="res://Level/Design/Plant_11.png" id="39_l0xmc"]
+[ext_resource type="PackedScene" uid="uid://o8bipopx4l6m" path="res://Environment/end.tscn" id="40_ma1ag"]
 [ext_resource type="PackedScene" uid="uid://c30lv2bmehrwy" path="res://Environment/PushableBox.tscn" id="45_yrf7i"]
 [ext_resource type="Script" uid="uid://yotohtykwd6g" path="res://pillar.gd" id="pillar_script"]
 
@@ -404,6 +405,10 @@ position = Vector2(1242.2223, -63.33339)
 rotation = 3.8471477
 scale = Vector2(-0.8269589, -0.78246367)
 texture = ExtResource("34_2en7k")
+
+[node name="End" parent="World" unique_id=16128998 instance=ExtResource("40_ma1ag")]
+position = Vector2(2134, -127)
+scale = Vector2(2, 2)
 
 [node name="Foreground" type="Node2D" parent="." unique_id=1766124595]
 

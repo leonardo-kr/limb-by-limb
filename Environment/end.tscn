@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://o8bipopx4l6m"]
+
+[ext_resource type="Script" uid="uid://cb3vdbdjy0qn6" path="res://Environment/End.cs" id="1_33u1q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2merx"]
+
+[node name="End" type="Node2D" unique_id=16128998]
+script = ExtResource("1_33u1q")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1689868189]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2141105428]
+shape = SubResource("RectangleShape2D_2merx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2021210557]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=805863934]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+
+[connection signal="body_entered" from="Area2D" to="." method="BodyEntered2D"]

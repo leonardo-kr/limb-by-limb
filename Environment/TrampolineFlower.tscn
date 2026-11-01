@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b8fto0ke0yhj6"]
+
+[ext_resource type="Texture2D" uid="uid://bijbxk12npeb" path="res://icon.svg" id="1_ib7ay"]
+[ext_resource type="Script" uid="uid://b4fq12g050gjd" path="res://Environment/TrampolineFlower.cs" id="1_xrqd8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrqd8"]
+size = Vector2(126, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpii5"]
+size = Vector2(128, 14)
+
+[node name="TrampolineFlower" type="StaticBody2D" unique_id=263623384]
+script = ExtResource("1_xrqd8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=612794383]
+scale = Vector2(1, 0.16000015)
+texture = ExtResource("1_ib7ay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1871603966]
+shape = SubResource("RectangleShape2D_xrqd8")
+
+[node name="PlayerChecker" type="Area2D" parent="." unique_id=1058801289]
+collision_layer = 4
+collision_mask = 2
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="PlayerChecker" unique_id=1228699071]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_tpii5")
+
+[connection signal="body_entered" from="PlayerChecker" to="." method="OnPlayerCheckerBodyEntered"]

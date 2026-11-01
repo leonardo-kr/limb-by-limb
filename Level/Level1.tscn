@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bsvatwdtmec3g" path="res://Player/HeadPlayer.tscn" id="1_1rv4e"]
 [ext_resource type="Script" uid="uid://c8kmslxoh5ajd" path="res://Level/ParallaxLayer.cs" id="1_iuwwb"]
 [ext_resource type="Texture2D" uid="uid://ccdennpcar3fs" path="res://Level/Design/Background_0.png" id="1_txdu4"]
+[ext_resource type="Shader" uid="uid://jihq6skmxbt2" path="res://Level/edge_fade.gdshader" id="1_yrf7i"]
 [ext_resource type="Texture2D" uid="uid://dkkd7c0d77es0" path="res://Level/Design/Back_Tree_2.png" id="2_2hk6s"]
 [ext_resource type="PackedScene" uid="uid://ce56xdwd2qa2y" path="res://Level/tile_map_layer.tscn" id="3_ai77n"]
 [ext_resource type="Texture2D" uid="uid://ckvdtj1nug52l" path="res://Level/Design/Back_Tree_3.png" id="3_iuwwb"]
@@ -45,6 +46,20 @@
 [ext_resource type="Texture2D" uid="uid://be6vtsjix62jl" path="res://Level/Design/Plant_11.png" id="39_l0xmc"]
 [ext_resource type="Script" uid="uid://yotohtykwd6g" path="res://pillar.gd" id="pillar_script"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbyci"]
+shader = ExtResource("1_yrf7i")
+shader_parameter/left_start = 0.0
+shader_parameter/left_end = 0.0
+shader_parameter/right_start = 0.9
+shader_parameter/right_end = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d5g4t"]
+shader = ExtResource("1_yrf7i")
+shader_parameter/left_start = 0.0
+shader_parameter/left_end = 0.0
+shader_parameter/right_start = 0.9
+shader_parameter/right_end = 1.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qu0m"]
 size = Vector2(9, 12.5)
 
@@ -78,6 +93,7 @@ scale = Vector2(0.3, 0.3)
 
 [node name="Background" type="Sprite2D" parent="Background/Sky" unique_id=1523717956]
 z_index = -15
+material = SubResource("ShaderMaterial_jbyci")
 position = Vector2(-175, 0)
 scale = Vector2(1.152307, 1)
 texture = ExtResource("1_txdu4")
@@ -99,8 +115,9 @@ layer = -1
 follow_viewport_enabled = true
 
 [node name="Background2" type="Sprite2D" parent="Background/Sky/CanvasLayer2" unique_id=1873994284]
-position = Vector2(660.99994, 142)
-scale = Vector2(0.16101693, 0.15)
+material = SubResource("ShaderMaterial_d5g4t")
+position = Vector2(606.99994, -14.499992)
+scale = Vector2(0.19915251, 0.43981478)
 texture = ExtResource("1_txdu4")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Background/Sky/CanvasLayer2/Background2" unique_id=79908914]

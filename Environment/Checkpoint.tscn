@@ -1,17 +1,26 @@
 [gd_scene format=3 uid="uid://c4qmks5xv1qvy"]
 
-[ext_resource type="Texture2D" uid="uid://8ooottm2myix" path="res://Player/player_head.png" id="1_pl3ab"]
+[ext_resource type="Texture2D" uid="uid://3px40g8hlb22" path="res://Level/Design/Save_Stone_Passive_1.png" id="1_2bndl"]
+[ext_resource type="Script" uid="uid://34xp3ioi1eyr" path="res://Environment/Checkpoint.cs" id="1_44vsi"]
+[ext_resource type="Texture2D" uid="uid://dmt0rgw86ionv" path="res://Level/Design/Save_Stone_Background.png" id="1_pl3ab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eip6h"]
-size = Vector2(20, 58)
+size = Vector2(380, 780)
 
 [node name="Checkpoint" type="StaticBody2D" unique_id=318321595]
+scale = Vector2(0.05, 0.05)
 collision_layer = 4
 collision_mask = 2
+script = ExtResource("1_44vsi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=595048606]
+position = Vector2(-9.999998, 50.000027)
+scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_eip6h")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2922951]
-scale = Vector2(0.028125, 0.0875)
+[node name="SpriteBG" type="Sprite2D" parent="." unique_id=2922951]
 texture = ExtResource("1_pl3ab")
+
+[node name="SpriteFG" type="Sprite2D" parent="." unique_id=342485230]
+scale = Vector2(0.9999998, 0.9999998)
+texture = ExtResource("1_2bndl")

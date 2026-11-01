@@ -42,6 +42,10 @@ public abstract partial class BasePlayer : CharacterBody2D
 
 	public void OnEnvBodyEntered(Node2D body)
 	{
+		if (body is Checkpoint checkpoint)
+        {
+			checkpoint.SetActive();
+        }
 		if (body.Name.ToString().Contains("Checkpoint"))
 		{
 			RespawnLocation = body.GlobalPosition;

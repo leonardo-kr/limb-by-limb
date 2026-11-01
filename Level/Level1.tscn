@@ -29,7 +29,11 @@
 [ext_resource type="PackedScene" uid="uid://24x75lmplati" path="res://Environment/PillarMan.tscn" id="20_4kmxf"]
 [ext_resource type="PackedScene" uid="uid://do04s8pe7lfu1" path="res://Player/FullPlayer.tscn" id="20_h7s2f"]
 [ext_resource type="PackedScene" uid="uid://c4qmks5xv1qvy" path="res://Environment/Checkpoint.tscn" id="21_h7s2f"]
+[ext_resource type="Texture2D" uid="uid://3px40g8hlb22" path="res://Level/Design/Save_Stone_Passive_1.png" id="23_ija0m"]
 [ext_resource type="Texture2D" uid="uid://bctkqrxacw0i8" path="res://Level/Design/Bounce_Plant_2.png" id="23_y26i4"]
+[ext_resource type="Texture2D" uid="uid://m5wsjh06hgq6" path="res://Level/Design/Save_Stone_Active_1.png" id="24_e0t1k"]
+[ext_resource type="Texture2D" uid="uid://0me3s8ikc03x" path="res://Level/Design/Save_Stone_Passive_2.png" id="25_afxha"]
+[ext_resource type="Texture2D" uid="uid://ds7oynu33qbwm" path="res://Level/Design/Save_Stone_Active_2.png" id="26_0tvpy"]
 [ext_resource type="Texture2D" uid="uid://bkykyyjb0sysq" path="res://Level/Design/Bounce_Plant_1.png" id="27_mljhq"]
 [ext_resource type="Texture2D" uid="uid://2wlccd1aowa4" path="res://Level/Design/Plant_1.png" id="27_uuobp"]
 [ext_resource type="Texture2D" uid="uid://t4adq0ykr6ca" path="res://Level/Design/Plant_3.png" id="28_oa7dg"]
@@ -284,10 +288,14 @@ MovementSpeed = 50.0
 StartOffset = 50.0
 
 [node name="Checkpoint" parent="World" unique_id=318321595 instance=ExtResource("21_h7s2f")]
-position = Vector2(413, 123)
+position = Vector2(412, 129)
+frontTexture = ExtResource("23_ija0m")
+frontTextureActive = ExtResource("24_e0t1k")
 
 [node name="Checkpoint2" parent="World" unique_id=899583657 instance=ExtResource("21_h7s2f")]
-position = Vector2(1054, 156)
+position = Vector2(1061, 164)
+frontTexture = ExtResource("25_afxha")
+frontTextureActive = ExtResource("26_0tvpy")
 
 [node name="BouncePlant1" type="Sprite2D" parent="World" unique_id=2036155473]
 position = Vector2(1364, 268.00003)

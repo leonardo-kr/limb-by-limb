@@ -47,19 +47,19 @@ public abstract partial class BasePlayer : CharacterBody2D
 		}
 	}
 
-    public async void Die()
-    {
+	public async void Die()
+	{
 		Sprite.Play("Death");
 		await ToSignal(GetTree().CreateTimer(1.3f), SceneTreeTimer.SignalName.Timeout);
 	
-	    Sprite.Hide();
-	    DeathTimer = DeathTime;
-	    await ToSignal(GetTree().CreateTimer(1.0f), SceneTreeTimer.SignalName.Timeout);
+		Sprite.Hide();
+		DeathTimer = DeathTime;
+		await ToSignal(GetTree().CreateTimer(1.0f), SceneTreeTimer.SignalName.Timeout);
 
 
-	    Position = RespawnLocation;
+		Position = RespawnLocation;
 		Sprite.Play("Idle");
-	    IsDead = false;
-	    Sprite.Show();
-    }
+		IsDead = false;
+		Sprite.Show();
+	}
 }

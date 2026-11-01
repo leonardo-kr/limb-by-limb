@@ -109,6 +109,14 @@ position = Vector2(81.94437, 0)
 scale = Vector2(0.99999994, 0.99999994)
 target_position = Vector2(0, -150.00002)
 
+[node name="WallDetectionLeft" type="RayCast2D" parent="." unique_id=1976860432]
+scale = Vector2(0.99999994, 0.99999994)
+target_position = Vector2(-77, 0)
+
+[node name="WallDetectionRight" type="RayCast2D" parent="." unique_id=494921195]
+scale = Vector2(0.99999994, 0.99999994)
+target_position = Vector2(77, 0)
+
 [node name="EnvArea" type="Area2D" parent="." unique_id=182735751]
 collision_layer = 2
 collision_mask = 4

@@ -151,7 +151,6 @@ public partial class HeadPlayer : BasePlayer
             PhysicsDirectSpaceState2D state = GetWorld2D().DirectSpaceState;
             PhysicsRayQueryParameters2D query = PhysicsRayQueryParameters2D.Create(Position, Position + Vector2.Up);
             Dictionary result = state.IntersectRay(query);
-            GD.Print(result);
             if (result.Count > 0)
             {
                 _isDead = true;
